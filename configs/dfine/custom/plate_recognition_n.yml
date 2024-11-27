@@ -1,12 +1,12 @@
 __include__: [
-  '../../dataset/plate_detection.yml',
+  '../../dataset/plate_recognition.yml',
   '../../runtime.yml',
-  '../include/dataloader.yml',
+  '../include/dataloader_plate_recognition.yml',
   '../include/optimizer.yml',
-  '../include/dfine_hgnetv2.yml',
+  '../include/dfine_hgnetv2_plate_recognition.yml',
 ]
 
-output_dir: ./output/plate_detection_n
+output_dir: ./output/plate_recognition_n_7
 
 
 DFINE:
@@ -66,15 +66,15 @@ optimizer:
 
 
 # Increase to search for the optimal ema
-epoches: 220
+epoches: 120
 train_dataloader:
   total_batch_size: 16
   dataset:
     transforms:
       policy:
-        epoch: 200
+        epoch: 100
   collate_fn:
-    stop_epoch: 200
+    stop_epoch: 100
     ema_restart_decay: 0.9999
     base_size_repeat: ~
 
